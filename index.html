@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Beans Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .logo-placeholder,.company-image,.trainee-image,.job-role-image{display:flex;align-items:center;justify-content:center}
+        .logo-placeholder{width:200px;height:80px;cursor:pointer}
+        .company-image{width:100%;height:400px;background-color:#e5e7eb;margin:20px 0}
+        .course-card,.course-link{transition:transform 0.3s ease}
+        .course-card:hover,.course-link:hover{transform:translateY(-5px)}
+        .dropdown-menu{display:none;position:absolute;right:1rem;top:5rem;background-color:#fff;box-shadow:0 4px 6px rgba(0,0,0,0.1);z-index:10;border-radius:0.5rem;width:200px}
+        .dropdown-menu.active{display:block}
+        .dropdown-menu a{display:block;padding:0.75rem 1rem;color:#4b5563;text-decoration:none;transition:all 0.2s ease}
+        .dropdown-menu a:hover{background-color:#ffedd5;color:#f97316}
+        .hamburger-btn{padding:0.5rem;border-radius:0.25rem;transition:all 0.2s ease}
+        .hamburger-btn:hover{background-color:#ffedd5}
+        .header-content{display:flex;justify-content:space-between;align-items:center;width:100%}
+        .logo-container{position:absolute;left:50%;transform:translateX(-50%)}
+        .trainee-image,.job-role-image{width:300px;height:300px;background-color:#e5e7eb;border-radius:8px;overflow:hidden}
+        .trainee-section,.job-role-section{display:flex;align-items:center;gap:40px;margin-bottom:60px}
+        .trainee-text,.job-role-text{flex:1}
+        .page{display:none}.page.active{display:block}
+        .form-input{width:100%;padding:1rem;border:1px solid #e5e7eb;border-radius:0.5rem;margin-bottom:1.5rem;font-size:1rem;transition:all 0.3s ease}
+        .form-input:focus{border-color:#f97316;outline:none;box-shadow:0 0 0 3px rgba(249,115,22,0.2)}
+        .form-textarea{min-height:150px;resize:vertical}
+        .submit-btn{background-color:#f97316;color:#fff;padding:1rem 2rem;border:none;border-radius:0.5rem;font-weight:600;cursor:pointer;transition:all 0.3s ease}
+        .submit-btn:hover{background-color:#ea580c;transform:translateY(-2px)}
+        .form-image{width:100%;max-width:600px;height:300px;background-color:#e5e7eb;margin:2rem auto;display:flex;align-items:center;justify-content:center;border-radius:0.5rem;overflow:hidden}
+        .job-specs-box{background-color:#f8fafc;border:1px solid #e2e8f0;border-radius:0.5rem;padding:1.5rem;margin-bottom:2rem}
+        .privacy-content{max-width:800px;margin:0 auto;line-height:1.6}
+        .privacy-content h2{font-size:1.5rem;font-weight:700;margin-top:2rem;margin-bottom:1rem;color:#1f2937}
+        .privacy-content p,.privacy-content ul{color:#4b5563;margin-bottom:1rem}
+        .privacy-content ul{list-style-type:disc;margin-left:2rem}
+        .company-logo{height:80px;object-fit:contain}
+        .company-image img,.trainee-image img,.job-role-image img{width:100%;height:100%;object-fit:cover;border-radius:0.5rem}
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 relative">
+            <div class="header-content">
+                <div class="w-8"></div>
+                <div class="logo-container">
+                    <div class="logo-placeholder" onclick="showPage('company-info')">
+                        <img src="hotbeansweblogo.png" alt="Hot Beans Web Logo" class="company-logo">
+                    </div>
+                </div>
+                <div class="relative">
+                    <button id="menu-toggle" class="hamburger-btn text-gray-700 focus:outline-none" onclick="toggleMenu()">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <a href="#" class="nav-link text-orange-500 font-medium" onclick="showPage('company-info')">Company Info</a>
+                        <a href="#" class="nav-link text-gray-600" onclick="showPage('existing-trainees')">Existing Trainees</a>
+                        <a href="#" class="nav-link text-gray-600" onclick="showPage('application-form')">Application Form</a>
+                        <a href="#" class="nav-link text-gray-600" onclick="showPage('job-roles')">Job Roles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="company-info" class="page active container mx-auto px-4 py-8">
+        <div class="company-image rounded-lg"><img src="offices2.png" alt="Hot Beans Web Offices"></div>
+        <section class="mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">About Hot Beans Web</h1>
+            <div class="prose max-w-none text-gray-600">
+                <p>Hot Beans Web was established in 2007 by David Wood, who previously held roles in a multi-national business. He saw that there was a potential for a slightly different type of Web Design Agency; David wanted to create a web design agency that could deliver on the fundamentals of providing good quality websites at affordable prices without compromising on quality.</p>
+                <p class="mt-4">Over a decade and a half later, it has proven to be a successful formula; we have seen the business grow year on year for both Hot Beans and our clients. We have our head office in Peterborough and offices in Northampton.</p>
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Our Trusting Clients</h2>
+                <p>Our clients base include many different types and sizes of business, ranging from the sole trader to SME's all the way through to household names. Hot Beans has had direct and indirect development contracts with some of the world's biggest names, including the likes of Belkin, DSG Group, Ingram Micro, Halfords, Nationwide, and Tesco.</p>
+                <p class="mt-4">However, our favourite customers are the ones that embrace a website to help start and develop their businesses. These include local plumbers, builders, electricians, home builders and gardeners. We are always here to help and believe in Givers Gain; if you need any help or advice, we are here to help, and we don't charge for any consultation ever!</p>
+                <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Our People</h2>
+                <p>We are so proud of the people who make Hot Beans who we are. They are a unique set of web designers, web developers, and marketers who come together to deliver on the one shared philosophy: to provide the best solutions for website design to our existing and new customers.</p>
+                <p class="mt-4">The team at Hotbeans is unusually diverse for the web design industry. As a team, we can focus more on our client's objectives and deliver custom web design and development to exceed our customer's expectations every time.</p>
+                <p class="mt-6 font-medium">We are constantly looking for dedicated new talent, whether formally qualified or self taught. If you think that is you then please fill out our application form and we can start the conversation.</p>
+                <p class="mt-2 font-medium">If you like the idea but feel you lack the skills look at our courses page to improve your confidence and technical ability.</p>
+            </div>
+        </section>
+        <section class="py-12 px-4 max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Web Development Courses</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Enhance your skills with these comprehensive web development learning resources.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://www.codecademy.com/catalog/subject/web-development" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">Codecademy Web Development</h3><p class="text-gray-600">Interactive coding courses covering HTML, CSS, JavaScript and modern frameworks.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+                <a href="https://www.coursera.org/learn/introduction-html-css-javascript" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">HTML, CSS & JavaScript</h3><p class="text-gray-600">Comprehensive introduction to web development fundamentals from Coursera.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+                <a href="https://web.dev/learn" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">Web.dev Learning</h3><p class="text-gray-600">Modern web development courses created by Google engineers and web experts.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <main id="existing-trainees" class="page container mx-auto px-4 py-8">
+        <section class="mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Meet Our Trainees</h1>
+            <div class="prose max-w-none text-gray-600">
+                <p>At Hot Beans Web, we're proud to nurture the next generation of web development talent. Our trainees come from diverse backgrounds but share a common passion for creating exceptional digital experiences.</p>
+                <p class="mt-4">Here are some of our current trainees who are making waves in our development team. Each brings unique skills and perspectives to our projects, helping us deliver innovative solutions to our clients.</p>
+            </div>
+        </section>
+        <section class="trainee-section">
+            <div class="trainee-image"><img src="Daniel_Lecroy.png" alt="Daniel Lecroy"></div>
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Daniel Lecroy</h2>
+                <p class="text-gray-600 mb-4">I'm Daniel and probably not the typical designer positioned behind an Illustrator artboard adjusting pixels, but I design. Immersed in stylesheets tweaking font sizes and contemplating layouts is where you'll find me (~_^). I'm committed to creating fluent user experiences while staying fashionable.</p>
+                <p class="text-gray-600">In building JavaScript applications, I'm equipped with just the right tools, and can absolutely function independently of them to deliver fast, resilient solutions optimized for scale — performance and scalability are priorities on my radar.</p>
+                <p class="text-gray-600 mt-4">I draw inspiration from a lot of different places when designing websites. Being a designer and creating something new every day is challenging. Sometimes, ideas spark instantly. But other times? They can take hours or even days to develop. When this happens, it's useful to step away from the project for a moment and look to others' work like at csszengarden to find inspiration.</p>
+                <p class="text-gray-600 mt-4">I also draw inspiration and awe from cultural art from around the world both old and new.</p>
+            </div>
+        </section>
+        <section class="trainee-section">
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Li Chang</h2>
+                <p class="text-gray-600 mb-4">Hello! My name is Li and I enjoy creating things that live on the internet.</p>
+                <p class="text-gray-600">I decided on this career as I grew up with a heavy influence from my father who ran his own software house, and I got an insight into what it's like to work in the tech industry. My father would always hype about how learning to program or by 'speaking the computer's language', he could type a few lines of code and tell the computer to do whatever he wanted it to do and that just blew my then curious and budding little mind.</p>
+                <p class="text-gray-600 mt-4">As I grew older, my interest in the field continued to grow as I started to understand the importance of technology and how it will continuously evolve to become a basic necessity in our day to day lives. I have always been one of the few girls in computing classes in school as well as only one of three other girls in my college courses, but I thought if my dad can do it, then so can I.</p>
+                <p class="text-gray-600 mt-4">I got my job with Hot Beans when I was in my last year of university, England had just gone into a lockdown due to COVID-19, and I was on the lookout for a good graduate job. I came across a job posting for a front-end engineer role at HBW I applied and a few days later I got a call for an interview. During the interview I spoke about how I enjoy all aspects of tech from design to development, as well as my awareness of the importance of web accessibility. A couple of days later, I received a phone call offering me the job and an email from my manager to tell me that I was joining the accessibility team.</p>
+                <p class="text-gray-600 mt-4">A typical as a graduate accessibility specialist is where I work alongside designers and developers to support them to create and build brilliant new features and run accessibility audits across different sites and applications against WCAG (Web Content Accessibility Guidelines), which helps us find accessibility issues to tackle. This ensures that our sites can be used by everyone regardless of their disabilities. My team and I also create and deliver engagement resources to raise awareness and understanding of accessibility.</p>
+                <p class="text-gray-600 mt-4">Apart from having the basic knowledge of web development and accessibility to carry out the job you also need: determination to learn good communication skills good analytical skills to be adaptive and collaborative to work alongside different people.</p>
+                <p class="text-gray-600 mt-4">The part I enjoy most about my job is working with a large number of inspiring developers and designers with a range of unique and amazing ideas across many different projects. At the same time, I have an opportunity to advocate and educate others about the importance of the topic. It's great knowing that the websites we've put online are accessible and safe for everyone to use, regardless of their disability.</p>
+            </div>
+            <div class="trainee-image"><img src="Li_Chang.png" alt="Li Chang"></div>
+        </section>
+        <section class="trainee-section">
+            <div class="trainee-image"><img src="Rosa_DeCastello.png" alt="Rosa DeCastello"></div>
+            <div class="trainee-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Rosa DeCastello</h2>
+                <p class="text-gray-600 mb-4">Hi I'm Rosa and I have a real passion for Creative design, I'm never happier than when I'm pushing the envelope of what can be done with HTML and CSS</p>
+                <p class="text-gray-600">I came into web design from an art background but soon realised that I needed to develop my technical skills as well. So I did a lot of online courses that pushed what I know, then used the support and experience of my colleagues to hone my skills. My work with Hot Beans has been very varied and I enjoy the challenge of not knowing what industry our next client will come from, it keeps me on my toes and my creativity fresh.</p>
+                <p class="text-gray-600 mt-4">I love working for HBW and they have been super supportive these are some of the things I do on a day to day basis:</p>
+                <p class="text-gray-600 mt-4">I take a lead role in maintaining and developing client's sites attend meetings with internal and external clients to plan and develop site content, style and appearance use web content management systems (CMS) analyse website usage statistics write reports for senior managers, clients and partnership organisations carry out quality assurance checks on content</p>
+                <p class="text-gray-600 mt-4">The part I enjoy most about my job is being both technical and creative it's the perfect mix.</p>
+            </div>
+        </section>
+    </main>
+
+    <main id="application-form" class="page container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 ml-4">Join Our Team</h1>
+        <section class="mb-12 text-center max-w-3xl mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Application for Web Development Position</h2>
+            <p class="text-gray-600 mb-6">We're excited you're interested in joining Hot Beans Web! Please fill out the form below to apply to be apart of our team. Our team will review your application and get back to you within 2 weeks.</p>
+        </section>
+        <form class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md" onsubmit="event.preventDefault();alert('Thank you for your application! We will review it and get back to you soon.');this.reset();">
+            <div><label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label><input type="text" id="name" class="form-input" placeholder="Enter your full name" required></div>
+            <div><label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label><input type="email" id="email" class="form-input" placeholder="Enter your email address" required></div>
+            <div><label for="experience" class="block text-gray-700 font-medium mb-2">Web Development Experience</label><input type="text" id="experience" class="form-input" placeholder="Briefly describe your experience (years, projects, etc.)"></div>
+            <div><label for="suitability" class="block text-gray-700 font-medium mb-2">Why You're a Good Fit</label><textarea id="suitability" class="form-input form-textarea" placeholder="Explain why you think you'd be a great fit to be apart of our team"></textarea></div>
+            <div class="text-center"><button type="submit" class="submit-btn">Submit Application</button></div>
+        </form>
+        <div class="form-image"><img src="stockimageforform.png" alt="Application form illustration"></div>
+    </main>
+
+    <main id="job-roles" class="page container mx-auto px-4 py-8">
+        <div class="job-specs-box">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Job Specifications</h1>
+            <p class="text-gray-600">At Hot Beans Web, we offer exciting opportunities in various web development roles. Below you'll find details about our current openings and the skills required for each position. We're looking for passionate individuals who are eager to learn and grow in the web development field.</p>
+        </div>
+        <section class="job-role-section">
+            <div class="job-role-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Web Designer</h2>
+                <p class="text-gray-600 mb-4">Web Designer Hot Beans Web - Peterborough PE1 £24,000 - £30,000 a year - Full-time, Permanent</p>
+                <p class="text-gray-600 mb-4">You'll be involved in the technical and graphical aspects of pages and will determine the look of the website as well as how it works. You may also be responsible for the maintenance of an existing site. The term web developer is sometimes used interchangeably with web designer, but this is misguided. Web developing is a more specialist role, focusing on the back-end development of a website, using programming languages to make the web design a reality that works well.</p>
+                <p class="text-gray-600 mb-4">The growth in touchscreen phones and tablet devices has dictated a new way of designing websites, with the web designer needing to ensure that web pages are responsive no matter what type of device is being used. Therefore, the need to test websites at different stages of design and on a variety of devices, has become an important aspect of the job. We are seeking a talented Web Designer to work with our team of programmers, and to join our ever-expanding creative team.</p>
+                <p class="text-gray-600 mb-4"><strong>You will:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Be working on a multitude of diverse creative projects for different audiences and markets.</li>
+                    <li>Will be responsible for the production of digital assets and website designs.</li>
+                    <li>Execute all visual design stages from concept to final hand-off to engineering</li>
+                    <li>Conceptualize original website design ideas that bring simplicity and user friendliness to complex roadblocks</li>
+                    <li>Create wireframes, storyboards, user flows, process flows and site maps to communicate interaction and design ideas</li>
+                    <li>Present and defend designs and key deliverables to peers and executive level stakeholders</li>
+                    <li>Establish and promote design guidelines, best practices and standards</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Essentials:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Proficiency in Photoshop, Illustrator or other visual design and wire-framing tools</li>
+                    <li>Proficiency in HTML, CSS and JavaScript for rapid prototyping</li>
+                    <li>Experience working in an Agile/Scrum development process</li>
+                    <li>Excellent visual design skills with sensitivity to user-system interaction</li>
+                    <li>Ability to solve problems creatively and effectively</li>
+                    <li>Up-to-date with the latest Web trends, techniques and technologies</li>
+                    <li>Proven experience as a Digital / Web Designer – ideally with marketing agency experience.</li>
+                    <li>A portfolio of work will be required pre-interview.</li>
+                    <li>High level of proficiency in Adobe Creative Suite (Photoshop, InDesign, Illustrator and XD).</li>
+                    <li>Solid experience in creating wireframes, storyboards, user flows, process flows and site maps</li>
+                    <li>A great team player.</li>
+                    <li>Strong verbal and written communication skills.</li>
+                    <li>High level of attention to detail and ability to stick to brand guidelines.</li>
+                    <li>Proven ability to initiate and manage projects, including working to tight deadlines and managing your own workloads.</li>
+                    <li>Demonstrable passion for new technologies and design trends.</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Desirable</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Experience using Figma.</li>
+                    <li>Experience with client-facing communications.</li>
+                    <li>Experience of UX / UI Research and Implementation</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>What we offer?</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Competitive salary.</li>
+                    <li>Additional Holiday to be taken on your birthday.</li>
+                    <li>Company Bonus schemes.</li>
+                    <li>Flexible working – 1 day per week guaranteed from home, if desired.</li>
+                    <li>Regular team outings and socials.</li>
+                    <li>A relaxed, fun and dynamic working environment</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Job Types:</strong> Full-time, Permanent<br><strong>Salary:</strong> £24,000.00-£30,000.00 per year<br><strong>Additional pay:</strong> Bonus scheme Performance bonus Yearly bonus</p>
+                <p class="text-gray-600 mb-4"><strong>Benefits:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Casual dress</li>
+                    <li>Company events</li>
+                    <li>Work from home</li>
+                </ul>
+                <p class="text-gray-600"><strong>Schedule:</strong> Monday to Friday</p>
+            </div>
+            <div class="job-role-image"><img src="webdesign.png" alt="Web Designer"></div>
+        </section>
+        <section class="job-role-section">
+            <div class="job-role-image"><img src="webdeveloper.png" alt="Web Developer"></div>
+            <div class="job-role-text">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Web Developer</h2>
+                <p class="text-gray-600 mb-4">Web Developer Hot Beans Web - Peterborough PE1 £28,000 - £35,000 a year - Full-time, Permanent</p>
+                <p class="text-gray-600 mb-4">We are now looking to build our in-house systems development team with the appointment of a junior web developer. The successful candidate will help develop back and front-end systems for our clients including eCommerce and B2B systems where you can see your ideas come to life. As a small development team, you will have to opportunity to work across multiple technical domains developing a breadth of skills.</p>
+                <p class="text-gray-600 mb-4"><strong>You will:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Your primary task as a web developer will be to create reliable and high-performing web-based applications and services.</li>
+                    <li>Focusing solely on the underlying software and databases and working with other teams on the interface and visual design.</li>
+                    <li>Establish and promote design guidelines, best practices and standards</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Essentials:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Experience with HTML, CSS, & JavaScript</li>
+                    <li>Exposure or Experience with one or more procedural programming languages, such as PHP, Java, C# (.Net), Python, CFML.</li>
+                    <li>Exposure or Experience with one or more associated technologies: Database technologies (SQL Server, MySQL), Windows Server or Linux Distributions, Development Tools, (IDEs, CLIs, Toolchains), Git (Or another VCS)</li>
+                    <li>An Organised and Pragmatic approach to Solving Problems.</li>
+                    <li>The ability to work as part of a team including both technical and non-technical members.</li>
+                    <li>Proven ability to initiate and manage projects, including working to tight deadlines and managing your own workloads.</li>
+                    <li>Demonstrable passion for new technologies and design trends.</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Desirable</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>In addition to the above the Ideal candidate would have experience working with the Salesforce platform.</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>What we offer?</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Competitive salary.</li>
+                    <li>Additional Holiday to be taken on your birthday.</li>
+                    <li>Company Bonus schemes.</li>
+                    <li>Flexible working – 1 day per week guaranteed from home, if desired.</li>
+                    <li>Regular team outings and socials.</li>
+                    <li>A relaxed, fun and dynamic working environment</li>
+                </ul>
+                <p class="text-gray-600 mb-4"><strong>Job Types:</strong> Full-time, Permanent<br><strong>Salary:</strong> £24,000.00-£30,000.00 per year<br><strong>Additional pay:</strong> Bonus scheme Performance bonus Yearly bonus</p>
+                <p class="text-gray-600 mb-4"><strong>Benefits:</strong></p>
+                <ul class="text-gray-600 list-disc pl-6 mb-4">
+                    <li>Casual dress</li>
+                    <li>Company events</li>
+                    <li>Work from home</li>
+                </ul>
+                <p class="text-gray-600"><strong>Schedule:</strong> Monday to Friday</p>
+            </div>
+        </section>
+        <section class="py-12 px-4 max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Web Development Courses</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Interested in developing skills for these roles? Check out these recommended learning resources.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://www.codecademy.com/catalog/subject/web-development" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">Codecademy Web Development</h3><p class="text-gray-600">Interactive coding courses covering HTML, CSS, JavaScript and modern frameworks.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+                <a href="https://www.coursera.org/learn/introduction-html-css-javascript" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">HTML, CSS & JavaScript</h3><p class="text-gray-600">Comprehensive introduction to web development fundamentals from Coursera.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+                <a href="https://web.dev/learn" target="_blank" rel="noopener noreferrer" class="course-link bg-white rounded-lg p-6 shadow-sm transition-all duration-200 border border-gray-200 hover:border-gray-300">
+                    <div class="mb-4"><h3 class="text-xl font-semibold text-gray-800 mb-2">Web.dev Learning</h3><p class="text-gray-600">Modern web development courses created by Google engineers and web experts.</p></div>
+                    <div class="text-blue-600 font-medium">Visit Course →</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <main id="privacy-policy" class="page container mx-auto px-4 py-8">
+        <div class="privacy-content">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
+            <p>The policy: This privacy policy is for this website; Policy key definitions: "I", "our", "us", or "we" refer to the business, Jamie King Media. "you", "the user" refer to the person(s) using this website. GDPR means General Data Protection Act. PECR means Privacy & Electronic Communications Regulation. Cookies mean small files stored on a users computer or device. Processing of your personal data Under the GDPR (General Data Protection Regulation) we control and process any personal information you provide to us electronically in the following ways. Unless otherwise defined, we only process your personal data for accounts & records, advertising, marketing, PR or staff administration (where applicable) purposes;</p>
+            <p>We use the contract lawful basis under the GDPR for the processing of your information to provide you with details about our services, supplying a quote or estimate. We shall continue to process your information until the contract between us ends or is terminated under any contract terms. Your personal data under the contract lawful basis is not shared with any third parties.</p>
+            <p>We use the consent lawful basis under the GDPR for the processing of your information when you explicitly consent to subscribe to our email mailing list. Your information is used to send you marketing messages within the scope outlined to you at the point of subscription. We collect the following information from you;</p>
+            <p>Your I.P address Full name Email address Web development experience</p>
+            <p>We use the legitimate interests lawful basis under the GDPR for the processing of your information where a shared interest exists between us. Your information is not shared with any third parties. We only store this information for as long as a legitimate interest exists.</p>
+            <p>Any personal information processed is done so securely with protective measures in place to prevent data breach. This includes data saved to computers, mobile devices, phones, laptops or tablets. Protective measures include passwords, pass codes, finger print recognition software and fire wall technology.</p>
+            <p>You can unsubscribe or manage your personal information at any time through an online system, which you will find links to in any subscription confirmation email or marketing message we sent to you since. We will continue to process your information under you withdraw consent or it is determined your consent no longer exists. Your personal data under the consent lawful basis is not shared with any third parties.</p>
+            <p>If, as determined by us, the lawful basis upon which we process your personal information changes, we will notify you about the change and any new lawful basis to be used if required. We shall stop processing your personal information if the lawful basis used is no longer relevant.</p>
+            <h2 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Your individual rights</h2>
+            <p>Under the GDPR your rights are as follows. You can read more about your rights in details here;</p>
+            <p>the right to be informed; the right of access; the right to rectification; the right to erasure; the right to restrict processing; the right to data portability; the right to object; and the right not to be subject to automated decision-making including profiling. You also have the right to complain to the ICO [www.ico.org.uk] if you feel there is a problem with the way we are handling your data.</p>
+            <p>We handle subject access requests in accordance with the GDPR.</p>
+            <h2 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Internet cookies</h2>
+            <p>We use cookies on this website to provide you with a better user experience. We do this by placing a small text file on your device / computer hard drive to track how you use the website, to record or log whether you have seen particular messages that we display, to keep you logged into the website where applicable, to display relevant adverts or content, referred you to a third party website.</p>
+            <p>Some cookies are required to enjoy and use the full functionality of this website.</p>
+            <p>We use a cookie control system which allows you to accept the use of cookies, and control which cookies are saved to your device / computer. Some cookies will be saved for specific time periods, where others may last indefinitely. Your web browser should provide you with the controls to manage and delete cookies from your device, please see your web browser options.</p>
+            <p>Cookies that we use are; Google universal analytics; _ga, _gat, _gid</p>
+            <h2 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Data security and protection</h2>
+            <p>We ensure the security of any personal information we hold by using secure data storage technologies and precise procedures in how we store, access and manage that information. Our methods meet the GDPR compliance requirement.</p>
+            <h2 class="text-2xl font-bold text-gray-800 mt-6 mb-4">Transparent Privacy Explanations</h2>
+            <p>We have provided some further explanations about user privacy and the way we use this website to help promote a transparent and honest user privacy methodology.</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold mb-2">Hot Beans Web</h3>
+                    <p class="text-gray-300">75 Broadway<br>Peterborough<br>PE1 1SY</p>
+                    <p class="text-gray-300">Phone: 01733 762255</p>
+                    <p class="text-gray-300">Email: contactus@hotbeansweb.co.uk</p>
+                </div>
+                <div><a href="#" class="text-orange-400 hover:underline" onclick="showPage('privacy-policy')">Privacy Policy</a></div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 Hot Beans Web. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('dropdown-menu').classList.toggle('active');
+        }
+        
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('dropdown-menu').classList.remove('active');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.toggle('text-orange-500', link.getAttribute('data-page') === pageId);
+                link.classList.toggle('text-gray-600', link.getAttribute('data-page') !== pageId);
+                link.classList.toggle('font-medium', link.getAttribute('data-page') === pageId);
+            });
+        }
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#dropdown-menu') && !e.target.closest('#menu-toggle')) {
+                document.getElementById('dropdown-menu').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
